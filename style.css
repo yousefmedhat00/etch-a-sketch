@@ -1,0 +1,97 @@
+body{
+    width: 100vw;
+    height: 100vw;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 36px;
+    color: rgb(243, 230, 211);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width : 600px;
+    flex-wrap: wrap;  
+    margin: auto;
+    outline: 30px solid rgb(197, 79, 70);
+}
+
+.square {
+    outline: 1px solid black;
+}
+
+.options {
+    display: flex;
+    width: 600px;
+    padding: 50px 30px;
+    justify-content: space-around;
+    background-color: rgb(197, 79, 70);
+    border-radius: 25px;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: rgb(197, 79, 70);
+    border-radius: 25px;
+}
+
+#size {
+-webkit-appearance: none;  
+appearance: none;
+height: 10px; 
+background: rgb(156, 60, 53);
+outline: none; 
+opacity: 0.7; 
+-webkit-transition: .2s; 
+transition: opacity .2s;
+margin-top: 8px;
+margin-left: 20px;
+border-radius: 5px;
+
+}
+
+#size::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px; 
+    height: 25px; 
+    border-radius: 5px;
+    background: rgb(243, 230, 211);
+    cursor: move;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+}
+
+.button {
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    box-shadow: -3px 3px rgb(156, 60, 53);
+    font-family:'Pixelify Sans', sans-serif;
+    font-size: 18px;
+    color:rgb(80, 73, 61);
+    cursor: pointer;
+}
+
+.button#reset, .button#color {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 2px dotted rgb(204, 191, 172);
+    box-shadow: -5px 5px rgb(156, 60, 53);
+}
