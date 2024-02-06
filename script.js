@@ -1,5 +1,8 @@
 const container = document.querySelector(".container");
 const userInput = document.querySelector("#size");
+const resetBtn = document.querySelector("#reset");
+const eraserBtn = document.querySelector("#eraser");
+const gridBtn = document.querySelector("#grid");
 
 let gridSquare = 16;
 
