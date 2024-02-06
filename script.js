@@ -12,15 +12,22 @@ function makeGrid(){
         square.classList.add("square");
         square.style.height = `${600 / gridSquare}px`;
         square.style.width = `${600 / gridSquare}px`;
+        container.style.width = `${600 + (gridSquare * 2)}px`;
+        container.style.height = `${600 + (gridSquare * 2)}px`;
     };
 };
 console.log(gridSquare)
 
 document.addEventListener("DOMContentLoaded", makeGrid())
 
+function deleteGrid() {
+container.innerHTML = '';
+}
+
 userInput.addEventListener("input", () => {
-    square.remove();
+    deleteGrid();
     gridSquare = userInput.value;
+    makeGrid();
     console.log(gridSquare)
 });
 
