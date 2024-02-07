@@ -8,6 +8,7 @@ const sliderLabel = document.querySelector("label");
 
 let rainbowToggle = false;
 let gridToggle = false;
+let eraserToggle = false;
 
 let gridSquare = 16;
 
@@ -34,8 +35,10 @@ let box = document.querySelectorAll(".square");
 
 box.forEach(function(box) {
    box.addEventListener("mouseover", () => {
-    if(rainbowToggle == false){
+    if(rainbowToggle == false && eraserToggle == false){
         box.style.backgroundColor = 'black';
+    } else if (eraserToggle == true){
+        box.style.backgroundColor = null;
     } else { 
         box.style.backgroundColor = getRandomColor();
     }
@@ -54,8 +57,10 @@ userInput.addEventListener("input", () => {
     console.log(gridSquare)
     for(i=0; i < gridSize; i++) {
         document.getElementsByClassName("square")[i].addEventListener("mouseover", function(event) {
-            if(rainbowToggle == false) {
-            event.target.style.backgroundColor = 'black';
+            if(rainbowToggle == false && eraserToggle == false) {
+                event.target.style.backgroundColor = 'black';
+            } else if (eraserToggle == true) {
+                event.target.style.backgroundColor = null;
             } else {
                 event.target.style.backgroundColor = getRandomColor();
             }
@@ -81,15 +86,19 @@ rainbowBtn.addEventListener("click", () => {
     rainbowBtn.classList.toggle("toggled");
     rainbowToggle = !rainbowToggle;
     console.log(rainbowToggle)
-})
+});
 
 gridBtn.addEventListener("click", () => {
     gridBtn.classList.toggle("toggled");
     gridToggle = !gridToggle;
     for(i = 0; i < gridSize; i++) {
         document.getElementsByClassName("square")[i].classList.toggle("grid");
-    }
-}
-)
+    };
+});
+
+eraserBtn.addEventListener("click", () => {
+    eraserBtn.classList.toggle("toggled");
+    eraserToggle = !eraserToggle;
+})
 
 console.log(getRandomColor());
