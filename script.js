@@ -5,6 +5,7 @@ const rainbowBtn = document.querySelector('#rainbow');
 const eraserBtn = document.querySelector("#eraser");
 const gridBtn = document.querySelector("#grid");
 const sliderLabel = document.querySelector("label");
+const colorSelector = document.querySelector("#color-select");
 
 let rainbowToggle = false;
 let gridToggle = false;
@@ -36,7 +37,7 @@ let box = document.querySelectorAll(".square");
 box.forEach(function(box) {
    box.addEventListener("mouseover", () => {
     if(rainbowToggle == false && eraserToggle == false){
-        box.style.backgroundColor = 'black';
+        box.style.backgroundColor = colorSelector.value;
     } else if (eraserToggle == true){
         box.style.backgroundColor = null;
     } else { 
@@ -58,7 +59,7 @@ userInput.addEventListener("input", () => {
     for(i=0; i < gridSize; i++) {
         document.getElementsByClassName("square")[i].addEventListener("mouseover", function(event) {
             if(rainbowToggle == false && eraserToggle == false) {
-                event.target.style.backgroundColor = 'black';
+                event.target.style.backgroundColor = colorSelector.value;
             } else if (eraserToggle == true) {
                 event.target.style.backgroundColor = null;
             } else {
