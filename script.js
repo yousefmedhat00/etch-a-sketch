@@ -13,6 +13,7 @@ let eraserToggle = false;
 
 let gridSquare = 16;
 
+/* Function to create grid */
 function makeGrid(){
     gridSize = gridSquare * gridSquare;
     for(i = 0; i < gridSize; i++){
@@ -28,12 +29,13 @@ function makeGrid(){
         square.style.width = `${600 / gridSquare}px`;
     };
 };
-console.log(gridSquare)
+
 
 document.addEventListener("DOMContentLoaded", makeGrid())
 
 let box = document.querySelectorAll(".square");
 
+/* Color in existing grid */
 box.forEach(function(box) {
    box.addEventListener("mouseover", () => {
     if(rainbowToggle == false && eraserToggle == false){
@@ -50,6 +52,7 @@ function deleteGrid() {
 container.innerHTML = '';
 }
 
+/* Event listener to change grid size according to slider */
 userInput.addEventListener("input", () => {
     deleteGrid();
     gridSquare = userInput.value;
@@ -68,12 +71,14 @@ userInput.addEventListener("input", () => {
         });
     }});
 
+/* Reset button to clear grid */
 resetBtn.addEventListener("click", () => {
     for(i=0; i < gridSize; i++) {
         document.getElementsByClassName("square")[i].style.backgroundColor = null;
     };
 });
 
+/* Function to get a random hex color */
 function getRandomColor() {
     let letters = '0123456789ABCDEF';
     let color = '#';
@@ -81,14 +86,15 @@ function getRandomColor() {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-  };
+};
 
+/* Rainbow color button toggle*/
 rainbowBtn.addEventListener("click", () => {
     rainbowBtn.classList.toggle("toggled");
     rainbowToggle = !rainbowToggle;
-    console.log(rainbowToggle)
 });
 
+/* Show grid button toggle */
 gridBtn.addEventListener("click", () => {
     gridBtn.classList.toggle("toggled");
     gridToggle = !gridToggle;
@@ -97,9 +103,9 @@ gridBtn.addEventListener("click", () => {
     };
 });
 
+/* Eraser button toggle */
 eraserBtn.addEventListener("click", () => {
     eraserBtn.classList.toggle("toggled");
     eraserToggle = !eraserToggle;
-})
+});
 
-console.log(getRandomColor());
