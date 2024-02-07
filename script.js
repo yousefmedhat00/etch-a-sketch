@@ -3,7 +3,7 @@ const userInput = document.querySelector("#size");
 const resetBtn = document.querySelector("#reset");
 const eraserBtn = document.querySelector("#eraser");
 const gridBtn = document.querySelector("#grid");
-
+const sliderLabel = document.querySelector("label");
 let gridSquare = 16;
 
 function makeGrid(){
@@ -37,6 +37,7 @@ userInput.addEventListener("input", () => {
     deleteGrid();
     gridSquare = userInput.value;
     makeGrid();
+    sliderLabel.textContent = `Size: ${gridSquare}px`;
     console.log(gridSquare)
     for(i=0; i < gridSize; i++) {
         document.getElementsByClassName("square")[i].addEventListener("mouseover", function(event) {
@@ -45,16 +46,8 @@ userInput.addEventListener("input", () => {
     }  
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+resetBtn.addEventListener("click", () => {
+    for(i=0; i < gridSize; i++) {
+        document.getElementsByClassName("square")[i].style.backgroundColor = null;
+    };
+});
